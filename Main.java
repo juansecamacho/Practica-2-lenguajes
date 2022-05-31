@@ -1,61 +1,31 @@
 import java.util.*;
 import java.io.*;
-public class Main extends Año {
 
-    public static void main(String[]args){
-        Main.MenuPrincipal();
-    }
+public class Main extends Funciones {
 
-    public static void MenuPrincipal(){
-        System.out.println("Bienvenido, por favor ingresa el numero del metadata que quieras usar:\n 1. Año: 2004 \n 2. Palabra: Pandemia \n 3. Frase: El aborto en Colombia");
-        Scanner sc = new Scanner(System.in);
-        int opcion = sc.nextInt();
-        switch (opcion){
-            case 1: Main.Menu1();
-                break;
-            case 2: Main.Menu2();
-                break;
-            case 3: Main.Menu3();
-                break;
-            default: System.out.println("Muchas gracias y vuelve pronto :)");
-                break;
-        }
+    public static void main(String[] args) {
+        //variable para guardar el txt convertido todo en mayuscula
+        String archivoConvertido;
 
-    }
+        System.out.println("Bienvenido, por favor ingresa la palabra,número o conjunto de palabras a buscar. ");
+        Scanner scannerObject = new Scanner(System.in);
+        String palabraBuscar = scannerObject.nextLine();
+        // palabra ingresada se convierte en mayuscula para poder realizar la busqueda exacta
+        palabraBuscar = palabraBuscar.toUpperCase();
+        
+        // se inicia con el txt Metadata Ano.txt
+        String metadata = "Metadata Ano";
+        archivoConvertido = convertirMayus(metadata);
+        LeerArchivo1(archivoConvertido,palabraBuscar);
 
-    public static void Menu1(){
-        System.out.println("ingresa un 1 para avanzar o cualquier otra tecla para devolverte");
-        Scanner sc = new Scanner(System.in);
-        int opcion = sc.nextInt();
-        switch (opcion){
-            case 1: Año.LeerArchivo1();
-                break;
-            default: Main.MenuPrincipal();
-                break;
-        }
-    }
+        // se continua con el txt Metadata Palabra.txt
+        metadata = "Metadata Palabra";
+        archivoConvertido = convertirMayus(metadata);
+        LeerArchivo1(archivoConvertido,palabraBuscar);
 
-    public static void Menu2(){
-        System.out.println("ingresa un 1 para avanzar o cualquier otra tecla para devolverte");
-        Scanner sc = new Scanner(System.in);
-        int opcion = sc.nextInt();
-        switch (opcion){
-            case 1: Año.LeerArchivo2();
-                break;
-            default: Main.MenuPrincipal();
-                break;
-        }
-    }
-
-    public static void Menu3(){
-        System.out.println("ingresa un 1 para avanzar o cualquier otra tecla para devolverte");
-        Scanner sc = new Scanner(System.in);
-        int opcion = sc.nextInt();
-        switch (opcion){
-            case 1: Año.LeerArchivo3();
-                break;
-            default: Main.MenuPrincipal();
-                break;
-        }
+        // se continua con el txt Metadata Frase.txt
+        metadata = "Metadata Frase";
+        archivoConvertido = convertirMayus(metadata);
+        buscarFrases(archivoConvertido,palabraBuscar);
     }
 }
