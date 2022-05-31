@@ -31,7 +31,7 @@ public class Funciones {
         return archivoFinal;
     }
 
-    public static void LeerArchivo1(String archivoFinal, String palabraBuscar) {
+    public static void LeerArchivo(String archivoFinal, String palabraBuscar) {
         int totalCoincidencias = 0;
 
         try {
